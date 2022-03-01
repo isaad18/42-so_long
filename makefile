@@ -1,17 +1,17 @@
-RCS	= map_handling.c	map_handling2.c	so_long.c	\
+RCS	= map_handling.c\
+	map_handling2.c\
+	so_long.c
 
 OBJS	= $(RCS:.c=.o)
 
-NAME	= so_long.a
+NAME	= so_long
 
 CFLAGS	= -Wall -Werror -Wextra
 
-%.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+mlx = ./mlx/libmlx.a
 
-$(NAME)	: $(OBJS)
-		ar rcs $(NAME) $(OBJS)
-		gcc $(CFLAGS) $(NAME) $(OBJS)
+$(NAME)	:
+		gcc $(CFLAGS) -o so_long $(RCS) $(mlx) -framework OpenGL -framework AppKit
 
 all	: $(NAME)
 

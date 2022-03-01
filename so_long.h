@@ -7,6 +7,15 @@
 # include<stdlib.h>
 # include<fcntl.h>
 # include<sys/stat.h>
+# include"./mlx/mlx.h"
+
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
 
 int		main(int argc, char **argv);
 
@@ -29,5 +38,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strchr(char *s, int c);
 
 char	*ft_strdup(char *s1);
+
+char	*startgame(char *str);
 
 #endif

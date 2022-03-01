@@ -1,5 +1,19 @@
 #include"so_long.h"
 
+char	*startgame(char *str)
+{
+	void	*mlx;
+	void	*mlx_win;
+	t_data	img;
+
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1920, 1080, str);
+	img.img = mlx_new_image(mlx, 64, 64);
+	img.addr = mlx_get_data_addr("mario.png", &img.8, &img.64, &img.endian);
+	mlx_loop(mlx);
+	return (str);
+}
+
 int	print_error(int	j)
 {
 	if (j == 1)
@@ -36,6 +50,8 @@ int	main(int argc, char **argv)
 		str[i] = '\0';
 		j = ft_open(str);
 		print_error(j);
+		if (j == 1)
+			startgame(str);
 	}
 	else
 		printf("%s", "error, wrong number of arguements");
