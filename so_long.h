@@ -9,7 +9,8 @@
 # include<sys/stat.h>
 # include"./mlx/mlx.h"
 
-typedef struct	s_data {
+typedef struct	s_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;

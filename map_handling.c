@@ -1,7 +1,5 @@
 #include"so_long.h"
 
-
-
 int ft_strlen(char *str)
 {
 	int i;
@@ -93,7 +91,8 @@ int checkline(int counter, int i, char **s, int j, int l, int ll, int lll)
             return (0);
         while (s[counter][j] != '\0')
         {
-            if((s[counter][j] != '1') && (s[counter][j] != '0') && (s[counter][j] != 'E') && (s[counter][j] != 'P') && (s[counter][j] != 'C'))
+            if((s[counter][j] != '1') && (s[counter][j] != '0') && 
+				(s[counter][j] != 'E') && (s[counter][j] != 'P') && (s[counter][j] != 'C'))
                 return (0);
             if (s[counter][j] == 'P')
                 l++;
@@ -107,6 +106,8 @@ int checkline(int counter, int i, char **s, int j, int l, int ll, int lll)
     }
     if (l != 1 || ll != 1 || lll == 0)
         return (0);
+    if (counter + 1 == ft_strlen(s[0]))
+		return (0);
     return (1);
 }
 

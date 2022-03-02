@@ -13,7 +13,7 @@ int	wordscount(char const *s, char c)
         return (0);
 	while (s[i])
 	{
-        if (s[i] == c && s[i + 1] == c)
+        if ((s[i] == c && s[i + 1] == c) || (s[i] == c && s[i + 1] == '\0'))
             return (0);
 		if (s[i] == c && !flag)
 			flag = 1;
