@@ -202,6 +202,8 @@ int ft_read(int fd)
     i = ft_strlen(map) - 1;
 	last = ft_strcpy(last, map, i, j);
     i = checkmap(last);
+    free (map);
+    free (last);
     return (i);
 }
 

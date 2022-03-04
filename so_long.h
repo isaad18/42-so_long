@@ -36,6 +36,8 @@ int		wordscount(char const *s, char c);
 
 char	**ft_split(char const *s, char c);
 
+char	*ft_strcpy(char *last, char *map, int i, int j);
+
 char	*ft_strchr(char *s, int c);
 
 char	*ft_strdup(char *s1);
