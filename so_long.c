@@ -104,28 +104,28 @@ int	moveit(int keycode)
 	printf("%d\n%d\n%d\n%d\n", data.i, data.j, data.x, data.y);
 	if (keycode == 13 && data.str1[data.i - data.j] != '1')
 	{
-		mlx_destroy_image(data.mlx, data.mario);
-		data.y += 64;
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, data.x, data.y);
+		data.y -= 64;
 		data.i -= data.j;
 		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
 	}
 	if (keycode == 0 && data.str1[data.i - 1] != '1')
 	{
-		mlx_destroy_image(data.mlx, data.mario);
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, data.x, data.y);
 		data.x -= 64;
 		data.i--;
 		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
 	}
 	if (keycode == 1 && data.str1[data.i + data.j] != '1' && data.str1[data.i + data.j])
 	{
-		mlx_destroy_image(data.mlx, data.mario);
-		data.y -= 64;
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, data.x, data.y);
+		data.y += 64;
 		data.i += data.j;
 		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
 	}
 	if (keycode == 2 && data.str1[data.i + 1] != '1')
 	{
-		mlx_destroy_image(data.mlx, data.mario);
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, data.x, data.y);
 		data.x += 64;
 		data.i++;
 		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
@@ -159,6 +159,7 @@ char	*startgame(char *str)
 	printf ("%s\n", data.str1);
 	data.mlx_win = mlx_new_window(data.mlx, i, j, "mario");
 	makeimgs();
+	data.j++;
 	mlx_key_hook(data.mlx_win, moveit, &data);
 	mlx_loop(data.mlx);
 	return (str);
