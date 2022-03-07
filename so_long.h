@@ -29,6 +29,11 @@ struct	s_data
 	int		i;
 	int		j;
 	char	*last;
+	char	*wall;
+	char	*collect;
+	char	*exit;
+	int		v;
+	int		z;
 }				data;
 
 
