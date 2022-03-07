@@ -34,6 +34,10 @@ struct	s_data
 	char	*exit;
 	int		v;
 	int		z;
+	int		counter;
+	int		cnb;
+	int		xx;
+	int		yy;
 }				data;
 
 

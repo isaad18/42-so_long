@@ -40,7 +40,8 @@ void	putimage(char c, int x, int y)
 	if (c == 'E')
 	{
 		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, x, y);
-		mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, x, y);
+		data.xx = x;
+		data.yy = y;
 	}
 	if (c == 'P')
 	{
@@ -107,7 +108,6 @@ void	ii(void)
 
 int	moveit(int keycode)
 {
-	printf("%d\n%d\n%d\n%d\n", data.i, data.j, data.x, data.y);
 	if (keycode == 13 && data.str1[data.i - data.j] != '1')
 	{
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
@@ -116,6 +116,17 @@ int	moveit(int keycode)
 		data.i -= data.j;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.mario, data.x, data.y);
+		if (data.str1[data.i] == 'C')
+		{
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.backg, data.x, data.y);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.mario, data.x, data.y);
+			data.str1[data.i] = '0';
+			data.counter++;
+		}
+		if (data.counter == data.cnb)
+			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
 	}
 	if (keycode == 0 && data.str1[data.i - 1] != '1')
 	{
@@ -125,6 +136,17 @@ int	moveit(int keycode)
 		data.i--;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.mario, data.x, data.y);
+		if (data.str1[data.i] == 'C')
+		{
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.backg, data.x, data.y);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.mario, data.x, data.y);
+			data.str1[data.i] = '0';
+			data.counter++;
+		}
+		if (data.counter == data.cnb)
+			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
 	}
 	if (keycode == 1 && data.str1[data.i + data.j] != '1'
 		&& data.str1[data.i + data.j])
@@ -135,6 +157,17 @@ int	moveit(int keycode)
 		data.i += data.j;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.mario, data.x, data.y);
+		if (data.str1[data.i] == 'C')
+		{
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.backg, data.x, data.y);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.mario, data.x, data.y);
+			data.str1[data.i] = '0';
+			data.counter++;
+		}
+		if (data.counter == data.cnb)
+			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
 	}
 	if (keycode == 2 && data.str1[data.i + 1] != '1')
 	{
@@ -144,7 +177,20 @@ int	moveit(int keycode)
 		data.i++;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.mario, data.x, data.y);
+		if (data.str1[data.i] == 'C')
+		{
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.backg, data.x, data.y);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.mario, data.x, data.y);
+			data.str1[data.i] = '0';
+			data.counter++;
+		}
+		if (data.counter == data.cnb)
+			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
 	}
+	if (data.counter == data.cnb && data.str1[data.i] == 'E')
+		mlx_destroy_window(data.mlx, data.mlx_win);
 	return (0);
 }
 
@@ -168,12 +214,13 @@ char	*startgame(char *str)
 	{
 		if (data.str1[i] == '\n')
 			j++;
+		if (data.str1[i] == 'C')
+			data.cnb++;
 		i++;
 	}
 	i /= j;
 	j *= 64;
 	i *= 64;
-	printf ("%s\n", data.str1);
 	data.mlx_win = mlx_new_window(data.mlx, i, j, "mario");
 	makeimgs();
 	data.j++;
