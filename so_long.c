@@ -27,83 +27,140 @@ char	*readstr(char *str)
 	return (last);
 }
 
-void	putimage(char c, char *wall, char *bg, char *mario, char *collect, int x, int y, void *mlx, void *mlx_win)
+void	putimage(char c, char *wall, char *collect, int x, int y, char *exit)
 {
 	if (c == '1')
-		mlx_put_image_to_window(mlx, mlx_win, wall, x, y);
+		mlx_put_image_to_window(data.mlx, data.mlx_win, wall, x, y);
 	if (c == '0')
-		mlx_put_image_to_window(mlx, mlx_win, bg, x, y);
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, x, y);
 	if (c == 'C')
-		mlx_put_image_to_window(mlx, mlx_win, collect, x, y);
+	{
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, x, y);
+		mlx_put_image_to_window(data.mlx, data.mlx_win, collect, x, y);
+	}
+	if (c == 'E')
+	{
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, x, y);
+		mlx_put_image_to_window(data.mlx, data.mlx_win, exit, x, y);
+	}
 	if (c == 'P')
 	{
-		mlx_put_image_to_window(mlx, mlx_win, bg, x, y);
-		mlx_put_image_to_window(mlx, mlx_win, mario, x, y);
+		data.x = x;
+		data.y = y;
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.backg, x, y);
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, x, y);
 	}
 }
 
-void	makeimgs(void *mlx, void *mlx_win, char *str1, char *adwall, char *adbg, char *admario, char *adcollect)
+void	makeimgs(void)
 {
-	int		img_width;
-	int		img_height;
+	data.img_width = 60;
+	data.img_height = 60;
 	int		x = 0;
 	int		y = 0;
-	char	*wall;
-	char	*bg;
-	char	*mario;
-	char	*collect;
+	char	*wall = mlx_xpm_file_to_image(data.mlx, data.adwall, &data.img_width, &data.img_height);
+	char	*exit = mlx_xpm_file_to_image(data.mlx, data.adexit, &data.img_width, &data.img_height);
+	char	*collect = mlx_xpm_file_to_image(data.mlx, data.adcollect, &data.img_width, &data.img_height);
 	int		i;
 
+	data.backg = mlx_xpm_file_to_image(data.mlx, data.adbg, &data.img_width, &data.img_height);
+	data.mario = mlx_xpm_file_to_image(data.mlx, data.admario, &data.img_width, &data.img_height);
 	i = 0;
-	img_width = 60;
-	img_height = 60;
-	wall = mlx_xpm_file_to_image(mlx, adwall, &img_width, &img_height);
-	bg = mlx_xpm_file_to_image(mlx, adbg, &img_width, &img_height);
-	mario = mlx_xpm_file_to_image(mlx, admario, &img_width, &img_height);
-	collect = mlx_xpm_file_to_image(mlx, adcollect, &img_width, &img_height);
-	while (str1[i])
+	while (data.str1[i])
 	{
-		if (str1[i] == '\n')
+		if (data.str1[i] == '\n')
 		{
-			y += 65;
+			y += 64;
 			x = 0;
 			i++;
 		}
-		putimage(str1[i], wall, bg, mario, collect, x, y, mlx, mlx_win);
+		putimage(data.str1[i], wall, collect, x, y, exit);
 		i++;
-		x += 65;
+		x += 64;
 	}
+}
+
+void	ii(void)
+{
+	int	i = 0;
+	int	j = 0;
+
+	while (data.str1[i] != 'P')
+	{
+		i++;
+	}
+	data.i = i;
+	i = 0;
+	while (data.str1[i] != '\n')
+	{
+		j++;
+		i++;
+	}
+	data.j = j;
+}
+
+int	moveit(int keycode)
+{
+	printf("%d\n%d\n%d\n%d\n", data.i, data.j, data.x, data.y);
+	if (keycode == 13 && data.str1[data.i - data.j] != '1')
+	{
+		mlx_destroy_image(data.mlx, data.mario);
+		data.y += 64;
+		data.i -= data.j;
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
+	}
+	if (keycode == 0 && data.str1[data.i - 1] != '1')
+	{
+		mlx_destroy_image(data.mlx, data.mario);
+		data.x -= 64;
+		data.i--;
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
+	}
+	if (keycode == 1 && data.str1[data.i + data.j] != '1' && data.str1[data.i + data.j])
+	{
+		mlx_destroy_image(data.mlx, data.mario);
+		data.y -= 64;
+		data.i += data.j;
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
+	}
+	if (keycode == 2 && data.str1[data.i + 1] != '1')
+	{
+		mlx_destroy_image(data.mlx, data.mario);
+		data.x += 64;
+		data.i++;
+		mlx_put_image_to_window(data.mlx, data.mlx_win, data.mario, data.x, data.y);
+	}
+	return (0);
 }
 
 char	*startgame(char *str)
 {
-	char	*str1;
-	void	*mlx;
-	char	*adwall = "./imgs/wall.xpm";
-	char	*adbg = "./imgs/bg.xpm";
-	char	*admario = "./imgs/mario.xpm";
-	char	*adcollect = "./imgs/collect.xpm";
-	void	*mlx_win;
-	int		i;
-	int		j;
+	int	i = 0;
+	int	j = 1;
 
-	i = 0;
-	j = 0;
-	mlx = mlx_init();
-	str1 = readstr(str);
-	while(str1[i])
+	data.str1 = readstr(str);
+	data.mlx = mlx_init();
+	data.adwall = "./imgs/wall.xpm";
+	data.adbg = "./imgs/bg.xpm";
+	data.admario = "./imgs/mario.xpm";
+	data.adcollect = "./imgs/collect.xpm";
+	data.adexit = "./imgs/exit.xpm";
+	data.mlx_win = mlx_new_window(data.mlx, i, j, "mario");
+	ii();
+	while(data.str1[i])
 	{
-		if (str1[i] == '\n')
+		if (data.str1[i] == '\n')
 			j++;
 		i++;
 	}
-	j += 1;
 	i /= j;
 	j *= 64;
 	i *= 64;
-	mlx_win = mlx_new_window(mlx, i, j, str);
-	makeimgs(mlx, mlx_win, str1, adwall, adbg, admario, adcollect);
-	mlx_loop(mlx);
+	printf ("%s\n", data.str1);
+	data.mlx_win = mlx_new_window(data.mlx, i, j, "mario");
+	makeimgs();
+	mlx_key_hook(data.mlx_win, moveit, &data);
+	mlx_loop(data.mlx);
 	return (str);
 }
 
@@ -112,11 +169,11 @@ int	print_error(int	j)
 	if (j == 1)
 		return (0);
 	if (j == 0)
-		printf("%s", "error");
+		ft_printf("%s", "error");
 	if (j == 2)
-		printf("%s", "error, invalid str1");
+		ft_printf("%s", "error, invalid str1");
 	if (j == 4)
-		printf("%s", "error, wrong str1 input");
+		ft_printf("%s", "error, wrong map input");
 	return (0);
 }
 

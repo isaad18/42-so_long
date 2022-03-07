@@ -10,9 +10,12 @@ CFLAGS	= -Wall -Werror -Wextra -g
 
 mlx = ./mlx/libmlx.a
 
+ft_printf = ./ft_printf/libftprintf.a
+
 $(NAME)	:
 		make -C ./mlx
-		gcc $(CFLAGS) -o so_long $(RCS) $(mlx) -framework OpenGL -framework AppKit
+		make -C ./ft_printf
+		gcc $(CFLAGS) -o so_long $(RCS) $(mlx) $(ft_printf) -framework OpenGL -framework AppKit
 
 all	: $(NAME)
 

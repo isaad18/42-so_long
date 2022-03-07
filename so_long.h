@@ -8,15 +8,30 @@
 # include<fcntl.h>
 # include<sys/stat.h>
 # include"./mlx/mlx.h"
+# include"./ft_printf/ft_printf.h"
 
-typedef struct	s_data
+struct	s_data
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
+	void	*mlx;
+	void	*mlx_win;
+	char	*str1;
+	char	*adwall;
+	char	*adbg;
+	char	*admario;
+	char	*adcollect;
+	char	*adexit;
+	int		img_height;
+	int		img_width;
+	char	*mario;
+	char	*backg;
+	int		x;
+	int		y;
+	int		i;
+	int		j;
+	char	*last;
+}				data;
+
+
 
 int		main(int argc, char **argv);
 
@@ -41,7 +56,5 @@ char	*ft_strcpy(char *last, char *map, int i, int j);
 char	*ft_strchr(char *s, int c);
 
 char	*ft_strdup(char *s1);
-
-char	*startgame(char *str);
 
 #endif
