@@ -6,8 +6,13 @@ int	moveit(int keycode)
 	left(keycode);
 	up(keycode);
 	down(keycode);
+	if (keycode == 53)
+		exit(0);
 	if (data.counter == data.cnb && data.str1[data.i] == 'E')
+	{
 		mlx_destroy_window(data.mlx, data.mlx_win);
+		exit(0);
+	}
 	return (0);
 }
 
