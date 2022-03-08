@@ -1,6 +1,10 @@
 RCS	= map_handling.c\
 	map_handling2.c\
-	so_long.c
+	so_long.c\
+	gameeee.c\
+	gameee.c\
+	gamee.c\
+	game.c
 
 OBJS	= $(RCS:.c=.o)
 

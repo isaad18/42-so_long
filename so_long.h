@@ -38,6 +38,9 @@ struct	s_data
 	int		cnb;
 	int		xx;
 	int		yy;
+	int		l;
+	int		ll;
+	int		lll;
 }				data;
 
 
@@ -65,5 +68,41 @@ char	*ft_strcpy(char *last, char *map, int i, int j);
 char	*ft_strchr(char *s, int c);
 
 char	*ft_strdup(char *s1);
+
+int		print_error(int j);
+
+char	*startgame(char *str);
+
+void	ftft(char *str);
+
+int		moveit(int keycode);
+
+int		down(int keycode);
+
+int		up(int keycode);
+
+int		right(int keycode);
+
+int		left(int keycode);
+
+void	ii(void);
+
+void	makeimgs(void);
+
+void	putimage(char c, int x, int y);
+
+char	*readstr(char *str);
+
+int checkline(int counter, int i, char **s, int j);
+
+int	checktop(char **s, int j);
+
+int checkbot(char **s, int i, int j);
+
+int checkmap(char *str);
+
+int ft_read(int fd);
+
+int ft_open(char *str);
 
 #endif

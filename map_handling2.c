@@ -100,20 +100,3 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strdup(char *s1)
-{
-	char	*str;
-	size_t	i;
-
-	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = 0;
-	return (str);
-}
