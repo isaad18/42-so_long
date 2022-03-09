@@ -76,3 +76,20 @@ void	iiii(void)
 	data.ll = 0;
 	data.lll = 0;
 }
+
+int	closew(int keycode)
+{
+	mlx_destroy_window(data.mlx, data.mlx_win);
+	freeme();
+	exit(0);
+	return (keycode);
+}
+
+void	freeme(void)
+{
+	free(data.a);
+	free(data.c);
+	free(data.ss);
+	free(data.lastt);
+	free(data.sh);
+}

@@ -41,20 +41,19 @@ int	wordscount(char const *s, char c)
 
 char	*wordscut(char const *s, int len, int start)
 {
-	char	*c;
 	int		i;
 
 	i = 0;
-	c = (char *)malloc(len + 1);
-	if (!c)
+	data.c = (char *)malloc(len + 1);
+	if (!data.c)
 		return (0);
 	while (len > 0)
 	{
-		c[i++] = s[start - len];
+		data.c[i++] = s[start - len];
 		len--;
 	}
-	c[i] = '\0';
-	return (c);
+	data.c[i] = '\0';
+	return (data.c);
 }
 
 void	wordsplit(char **strs, char c, char const *s, int words)
@@ -81,17 +80,16 @@ void	wordsplit(char **strs, char c, char const *s, int words)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**a;
 	int		words;
 
 	if (!s)
 		return (0);
 	words = wordscount(s, c);
-	a = (char **)malloc((words + 1) * sizeof(char *));
-	if (!a)
+	data.a = (char **)malloc((words + 1) * sizeof(char *));
+	if (!data.a)
 		return (0);
-	wordsplit(a, c, s, words);
-	return (a);
+	wordsplit(data.a, c, s, words);
+	return (data.a);
 }
 
 char	*ft_strchr(char *s, int c)

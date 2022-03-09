@@ -1,10 +1,10 @@
 RCS	= map_handling.c\
 	map_handling2.c\
 	so_long.c\
-	gameeee.c\
-	gameee.c\
-	gamee.c\
-	game.c
+	utils1.c\
+	utils2.c\
+	utils3.c\
+	utils4.c
 
 OBJS	= $(RCS:.c=.o)
 

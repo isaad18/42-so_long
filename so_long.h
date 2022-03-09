@@ -53,6 +53,12 @@ struct	s_data
 	int		l;
 	int		ll;
 	int		lll;
+	int		steps;
+	char	**a;
+	char	*c;
+	char	*sh;
+	char	*ss;
+	char	*lastt;
 }				data;
 
 int		main(int argc, char **argv);
@@ -116,5 +122,9 @@ int		ft_read(int fd);
 int		ft_open(char *str);
 
 void	iiii(void);
+
+int		closew(int keycode);
+
+void	freeme(void);
 
 #endif

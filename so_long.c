@@ -14,15 +14,21 @@
 
 int	moveit(int keycode)
 {
+	if (keycode == 53)
+	{
+		freeme();
+		exit(0);
+	}
 	right(keycode);
 	left(keycode);
 	up(keycode);
 	down(keycode);
-	if (keycode == 53)
-		exit(0);
+	ft_printf("%d\n", data.steps);
 	if (data.counter == data.cnb && data.str1[data.i] == 'E')
 	{
 		mlx_destroy_window(data.mlx, data.mlx_win);
+		ft_printf("%s", "game over");
+		freeme();
 		exit(0);
 	}
 	return (0);
@@ -50,6 +56,7 @@ char	*startgame(char *str)
 	j *= 64;
 	i *= 64;
 	data.mlx_win = mlx_new_window(data.mlx, i, j, "mario");
+	mlx_hook(data.mlx_win, 17, 1L<<5, closew, &data);
 	makeimgs();
 	data.j++;
 	mlx_key_hook(data.mlx_win, moveit, &data);
@@ -59,7 +66,6 @@ char	*startgame(char *str)
 
 int	main(int argc, char **argv)
 {
-	char	*str;
 	int		i;
 	int		j;
 
@@ -68,18 +74,18 @@ int	main(int argc, char **argv)
 	{
 		while (argv[1][i])
 			i++;
-		str = (char *)malloc(i + 1);
+		data.sh = (char *)malloc(i + 1);
 		i = 0;
 		while (argv[1][i])
 		{
-			str[i] = argv[1][i];
+			data.sh[i] = argv[1][i];
 			i++;
 		}
-		str[i] = '\0';
-		j = ft_open(str);
+		data.sh[i] = '\0';
+		j = ft_open(data.sh);
 		print_error(j);
 		if (j == 1)
-			startgame(str);
+			startgame(data.sh);
 	}
 	else
 		printf("%s", "error, wrong number of arguements");

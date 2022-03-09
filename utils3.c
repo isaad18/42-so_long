@@ -99,9 +99,9 @@ int	print_error(int j)
 	if (j == 0)
 		ft_printf("%s", "error");
 	if (j == 2)
-		ft_printf("%s", "error, invalid str1");
+		ft_printf("%s", "error, invalid map");
 	if (j == 4)
-		ft_printf("%s", "error, wrong map input");
+		ft_printf("%s", "error, wrong map input, don't even try");
 	return (0);
 }
 
