@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isaad <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/09 02:04:00 by isaad             #+#    #+#             */
+/*   Updated: 2022/03/09 02:04:02 by isaad            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"so_long.h"
 
 char	*ft_strdup(char *s1)
@@ -18,9 +30,9 @@ char	*ft_strdup(char *s1)
 	return (str);
 }
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -28,11 +40,11 @@ int ft_strlen(char *str)
 	return (i);
 }
 
-char    *ft_strrev(char *str)
+char	*ft_strrev(char *str)
 {
-	int i;
-	int len;
-	char tmp;
+	int		i;
+	int		len;
+	char	tmp;
 
 	i = 0;
 	len = ft_strlen(str) - 1;
@@ -49,15 +61,15 @@ char    *ft_strrev(char *str)
 
 char	*ft_strcpy(char *last, char *map, int i, int j)
 {
-    while (j < i)
-    {
-        last[j] = map[j];
-        j++;
-    }
+	while (j < i)
+	{
+		last[j] = map[j];
+		j++;
+	}
 	return (last);
 }
 
-char    *ft_strnstr(char *str, char *to_find)
+char	*ft_strnstr(char *str, char *to_find)
 {
 	size_t	i;
 	size_t	j;
@@ -67,7 +79,7 @@ char    *ft_strnstr(char *str, char *to_find)
 		return ((char *)str);
 	if (!str && !to_find)
 		return (NULL);
-    j = 0;
+	j = 0;
 	while (str[i] && i < 1)
 	{
 		while (str[i + j] && to_find[j] && str[i + j] == to_find[j])

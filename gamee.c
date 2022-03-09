@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gamee.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isaad <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/09 02:05:14 by isaad             #+#    #+#             */
+/*   Updated: 2022/03/09 02:05:15 by isaad            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"so_long.h"
 
 char	*readstr(char *str)
@@ -46,7 +58,8 @@ int	left(int keycode)
 			data.counter++;
 		}
 		if (data.counter == data.cnb)
-			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.exit, data.xx, data.yy);
 	}
 	return (0);
 }
@@ -71,7 +84,8 @@ int	right(int keycode)
 			data.counter++;
 		}
 		if (data.counter == data.cnb)
-			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.exit, data.xx, data.yy);
 	}
 	return (0);
 }
@@ -96,7 +110,8 @@ int	up(int keycode)
 			data.counter++;
 		}
 		if (data.counter == data.cnb)
-			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.exit, data.xx, data.yy);
 	}
 	return (0);
 }
@@ -122,7 +137,8 @@ int	down(int keycode)
 			data.counter++;
 		}
 		if (data.counter == data.cnb)
-			mlx_put_image_to_window(data.mlx, data.mlx_win, data.exit, data.xx, data.yy);
+			mlx_put_image_to_window(data.mlx, data.mlx_win,
+				data.exit, data.xx, data.yy);
 	}
 	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_handling2.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/09 02:16:24 by isaad             #+#    #+#             */
+/*   Updated: 2022/03/09 02:24:29 by isaad            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"so_long.h"
 
 int	wordscount(char const *s, char c)
@@ -9,12 +21,12 @@ int	wordscount(char const *s, char c)
 	i = 0;
 	words = 0;
 	flag = 1;
-    if (s[0] == c)
-        return (0);
+	if (s[0] == c)
+		return (0);
 	while (s[i])
 	{
-        if ((s[i] == c && s[i + 1] == c) || (s[i] == c && s[i + 1] == '\0'))
-            return (0);
+		if ((s[i] == c && s[i + 1] == c) || (s[i] == c && s[i + 1] == '\0'))
+			return (0);
 		if (s[i] == c && !flag)
 			flag = 1;
 		else if (s[i] != c && flag)
@@ -99,4 +111,3 @@ char	*ft_strchr(char *s, int c)
 		return ((char *)(s + i));
 	return (0);
 }
-

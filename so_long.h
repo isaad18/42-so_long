@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isaad <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/09 02:26:13 by isaad             #+#    #+#             */
+/*   Updated: 2022/03/09 02:26:18 by isaad            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -42,8 +54,6 @@ struct	s_data
 	int		ll;
 	int		lll;
 }				data;
-
-
 
 int		main(int argc, char **argv);
 
@@ -93,16 +103,18 @@ void	putimage(char c, int x, int y);
 
 char	*readstr(char *str);
 
-int checkline(int counter, int i, char **s, int j);
+int		checkline(int counter, int i, char **s, int j);
 
-int	checktop(char **s, int j);
+int		checktop(char **s, int j);
 
-int checkbot(char **s, int i, int j);
+int		checkbot(char **s, int i, int j);
 
-int checkmap(char *str);
+int		checkmap(char *str);
 
-int ft_read(int fd);
+int		ft_read(int fd);
 
-int ft_open(char *str);
+int		ft_open(char *str);
+
+void	iiii(void);
 
 #endif

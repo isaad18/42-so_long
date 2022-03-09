@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gameeee.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/09 02:07:26 by isaad             #+#    #+#             */
+/*   Updated: 2022/03/09 02:20:42 by isaad            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"so_long.h"
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -29,31 +41,38 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (new);
 }
 
-int checkline(int counter, int i, char **s, int j)
+int	checkline(int co, int i, char **s, int j)
 {
-    while (counter < i - 1)
-    {
-        j = 0;
-        if ((s[counter][0] != '1') || (s[counter][ft_strlen(s[counter]) - 1] != '1'))
-            return (0);
-        if(ft_strlen(s[counter]) != ft_strlen(s[counter + 1]))
-            return (0);
-        while (s[counter][j] != '\0')
-        {
-            if((s[counter][j] != '1') && (s[counter][j] != '0') && 
-				(s[counter][j] != 'E') && (s[counter][j] != 'P') && (s[counter][j] != 'C'))
-                return (0);
-            if (s[counter][j] == 'P')
-                data.l++;
-            else if (s[counter][j] == 'E')
-                data.ll++;
-            else if (s[counter][j] == 'C')
-                data.lll++;
-            j++;
-        }
-        counter++;
-    }
-    if ((data.l != 1 || data.ll != 1 || data.lll == 0))
-        return (0);
-    return (1);
+	while (co < i - 1)
+	{
+		j = 0;
+		if ((s[co][0] != '1') || (s[co][ft_strlen(s[co]) - 1] != '1'))
+			return (0);
+		if (ft_strlen(s[co]) != ft_strlen(s[co + 1]))
+			return (0);
+		while (s[co][j] != '\0')
+		{
+			if ((s[co][j] != '1') && (s[co][j] != '0') && (s
+				[co][j] != 'E') && (s[co][j] != 'P') && (s[co][j] != 'C'))
+				return (0);
+			if (s[co][j] == 'P')
+				data.l++;
+			else if (s[co][j] == 'E')
+				data.ll++;
+			else if (s[co][j] == 'C')
+				data.lll++;
+			j++;
+		}
+		co++;
+	}
+	if ((data.l != 1 || data.ll != 1 || data.lll == 0))
+		return (0);
+	return (1);
+}
+
+void	iiii(void)
+{
+	data.l = 0;
+	data.ll = 0;
+	data.lll = 0;
 }
