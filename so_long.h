@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isaad <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:26:13 by isaad             #+#    #+#             */
-/*   Updated: 2022/03/09 02:26:18 by isaad            ###   ########.fr       */
+/*   Updated: 2022/05/04 14:38:24 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct	s_data
 	void	*mlx_win;
 	char	*str1;
 	char	*adwall;
+	char	*adfire;
 	char	*adbg;
 	char	*admario;
 	char	*adcollect;
@@ -35,11 +36,17 @@ struct	s_data
 	int		img_height;
 	int		img_width;
 	char	*mario;
+	char	*fire;
 	char	*backg;
 	int		x;
 	int		y;
 	int		i;
 	int		j;
+	char	*str2;
+	int		xf;
+	int		yf;
+	int		ii;
+	int		jj;
 	char	*last;
 	char	*wall;
 	char	*collect;
@@ -59,6 +66,7 @@ struct	s_data
 	char	*sh;
 	char	*ss;
 	char	*lastt;
+	int		lastkey;
 }				data;
 
 int		main(int argc, char **argv);
@@ -126,5 +134,7 @@ void	iiii(void);
 int		closew(int keycode);
 
 void	freeme(void);
+
+int		firean(void);
 
 #endif

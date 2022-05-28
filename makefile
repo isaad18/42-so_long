@@ -4,7 +4,8 @@ RCS	= map_handling.c\
 	utils1.c\
 	utils2.c\
 	utils3.c\
-	utils4.c
+	utils4.c\
+	firing.c\
 
 OBJS	= $(RCS:.c=.o)
 

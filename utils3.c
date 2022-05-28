@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gameee.c                                           :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isaad <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:05:30 by isaad             #+#    #+#             */
-/*   Updated: 2022/03/09 02:05:32 by isaad            ###   ########.fr       */
+/*   Updated: 2022/05/02 22:25:01 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	makeimgs(void)
 	data.backg = mlx_xpm_file_to_image(data.mlx, data.adbg,
 			&data.img_width, &data.img_height);
 	data.mario = mlx_xpm_file_to_image(data.mlx, data.admario,
+			&data.img_width, &data.img_height);
+	data.fire = mlx_xpm_file_to_image(data.mlx, data.adfire,
 			&data.img_width, &data.img_height);
 	i = 0;
 	while (data.str1[i])
@@ -114,4 +116,5 @@ void	ftft(char *str)
 	data.admario = "./imgs/mario.xpm";
 	data.adcollect = "./imgs/collect.xpm";
 	data.adexit = "./imgs/exit.xpm";
+	data.adfire = "./imgs/firing.xpm";
 }

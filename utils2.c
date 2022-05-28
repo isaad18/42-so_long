@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gamee.c                                            :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isaad <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:05:14 by isaad             #+#    #+#             */
-/*   Updated: 2022/03/09 02:05:15 by isaad            ###   ########.fr       */
+/*   Updated: 2022/05/02 20:57:51 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	left(int keycode)
 {
 	if (keycode == 0 && data.str1[data.i - 1] != '1')
 	{
+		data.lastkey = keycode;
 		data.steps++;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.backg, data.x, data.y);
@@ -68,6 +69,7 @@ int	right(int keycode)
 {
 	if (keycode == 2 && data.str1[data.i + 1] != '1')
 	{
+		data.lastkey = keycode;
 		data.steps++;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.backg, data.x, data.y);
@@ -95,6 +97,7 @@ int	up(int keycode)
 {
 	if (keycode == 13 && data.str1[data.i - data.j] != '1')
 	{
+		data.lastkey = keycode;
 		data.steps++;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.backg, data.x, data.y);
@@ -123,6 +126,7 @@ int	down(int keycode)
 	if (keycode == 1 && data.str1[data.i + data.j] != '1'
 		&& data.str1[data.i + data.j])
 	{
+		data.lastkey = keycode;
 		data.steps++;
 		mlx_put_image_to_window(data.mlx, data.mlx_win,
 			data.backg, data.x, data.y);

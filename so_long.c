@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isaad <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:02:29 by isaad             #+#    #+#             */
-/*   Updated: 2022/03/09 02:02:31 by isaad            ###   ########.fr       */
+/*   Updated: 2022/05/09 17:25:18 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
+
+void	fire(int keycode)
+{
+	if (keycode == 49)
+	{
+		data.str2 = data.str1;
+		data.jj = data.j;
+		data.ii = data.i;
+		data.xf = data.x;
+		data.yf = data.y;
+		firean();
+	}
+}
 
 int	moveit(int keycode)
 {
@@ -23,6 +36,7 @@ int	moveit(int keycode)
 	left(keycode);
 	up(keycode);
 	down(keycode);
+	fire(keycode);
 	ft_printf("%d\n", data.steps);
 	if (data.counter == data.cnb && data.str1[data.i] == 'E')
 	{
