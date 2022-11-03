@@ -6,7 +6,7 @@
 /*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:26:13 by isaad             #+#    #+#             */
-/*   Updated: 2022/05/04 14:38:24 by isaad            ###   ########.fr       */
+/*   Updated: 2022/11/03 13:13:39 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 # include<stdlib.h>
 # include<fcntl.h>
 # include<sys/stat.h>
-# include"./mlx/mlx.h"
-# include"./ft_printf/ft_printf.h"
+# include"../mlx/mlx.h"
 
 struct	s_data
 {

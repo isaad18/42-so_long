@@ -6,11 +6,11 @@
 /*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:05:30 by isaad             #+#    #+#             */
-/*   Updated: 2022/05/02 22:25:01 by isaad            ###   ########.fr       */
+/*   Updated: 2022/11/03 13:13:01 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"../includes/so_long.h"
 
 void	putimage(char c, int x, int y)
 {
@@ -99,11 +99,11 @@ int	print_error(int j)
 	if (j == 1)
 		return (0);
 	if (j == 0)
-		ft_printf("%s", "error");
+		printf("%s", "error");
 	if (j == 2)
-		ft_printf("%s", "error, invalid map");
+		printf("%s", "error, invalid map");
 	if (j == 4)
-		ft_printf("%s", "error, wrong map input, don't even try");
+		printf("%s", "error, wrong map input, don't even try");
 	return (0);
 }
 

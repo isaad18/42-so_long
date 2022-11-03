@@ -6,11 +6,11 @@
 /*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:16:24 by isaad             #+#    #+#             */
-/*   Updated: 2022/03/09 02:24:29 by isaad            ###   ########.fr       */
+/*   Updated: 2022/11/03 13:11:22 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"../includes/so_long.h"
 
 int	wordscount(char const *s, char c)
 {

@@ -6,11 +6,11 @@
 /*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:05:14 by isaad             #+#    #+#             */
-/*   Updated: 2022/05/02 20:57:51 by isaad            ###   ########.fr       */
+/*   Updated: 2022/11/03 13:11:22 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"../includes/so_long.h"
 
 char	*readstr(char *str)
 {

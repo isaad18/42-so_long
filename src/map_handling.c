@@ -6,11 +6,11 @@
 /*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:16:18 by isaad             #+#    #+#             */
-/*   Updated: 2022/03/09 02:24:07 by isaad            ###   ########.fr       */
+/*   Updated: 2022/11/03 13:11:22 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"../includes/so_long.h"
 
 int	checktop(char **s, int j)
 {

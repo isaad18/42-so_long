@@ -6,11 +6,11 @@
 /*   By: isaad <isaad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:02:29 by isaad             #+#    #+#             */
-/*   Updated: 2022/05/09 17:25:18 by isaad            ###   ########.fr       */
+/*   Updated: 2022/11/03 13:13:01 by isaad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"../includes/so_long.h"
 
 void	fire(int keycode)
 {
@@ -37,11 +37,11 @@ int	moveit(int keycode)
 	up(keycode);
 	down(keycode);
 	fire(keycode);
-	ft_printf("%d\n", data.steps);
+	printf("%d\n", data.steps);
 	if (data.counter == data.cnb && data.str1[data.i] == 'E')
 	{
 		mlx_destroy_window(data.mlx, data.mlx_win);
-		ft_printf("%s", "game over");
+		printf("%s", "game over");
 		freeme();
 		exit(0);
 	}

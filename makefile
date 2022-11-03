@@ -1,11 +1,11 @@
-RCS	= map_handling.c\
-	map_handling2.c\
-	so_long.c\
-	utils1.c\
-	utils2.c\
-	utils3.c\
-	utils4.c\
-	firing.c\
+RCS	= ./src/map_handling.c\
+	./src/map_handling2.c\
+	./src/so_long.c\
+	./src/utils1.c\
+	./src/utils2.c\
+	./src/utils3.c\
+	./src/utils4.c\
+	./src/firing.c\
 
 OBJS	= $(RCS:.c=.o)
 
@@ -19,8 +19,7 @@ ft_printf = ./ft_printf/libftprintf.a
 
 $(NAME)	:
 		make -C ./mlx
-		make -C ./ft_printf
-		gcc $(CFLAGS) -o so_long $(RCS) $(mlx) $(ft_printf) -framework OpenGL -framework AppKit
+		gcc $(CFLAGS) -o so_long $(RCS) $(mlx) -framework OpenGL -framework AppKit
 
 all	: $(NAME)
 
